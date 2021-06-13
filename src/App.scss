@@ -11,20 +11,20 @@ a {
   color: inherit;
 }
 
-.message {
-  display: none;
-  width: 100%;
-  text-align: center;
-}
+// .message {
+//   display: none;
+//   width: 100%;
+//   text-align: center;
+// }
 
-@media (max-width: 900px) {
-  .App {
-    display: none;
-  }
-  .message {
-    display: block;
-  }
-}
+// @media (max-width: 900px) {
+//   .App {
+//     display: none;
+//   }
+//   .message {
+//     display: block;
+//   }
+// }
 
 // @font-face {
 //   font-family: "Sansation Regular";
