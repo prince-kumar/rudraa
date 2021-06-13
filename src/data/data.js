@@ -10,11 +10,12 @@ export const data = {
   list: [
     {
       title: "Cashew Nut Shell Liquid (CNSL)",
-      image: "/img/oil.jpeg",
+      image: "/img/1.jpeg",
     },
     {
       title: "Cashew Nut Shell De-Oiled Cake",
-      image: "/img/cake.jpg",
+      image:
+        "https://2.wlimg.com/product_images/bc-full/2019/9/5017742/cashew-nut-shell-cake-1568785251-5082766.jpeg",
     },
   ],
   img4: "/img/hand-cashew-oil.jpg",
