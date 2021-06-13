@@ -1,8 +1,13 @@
 import "./styles.scss";
 
-const MainButton = ({ children, type }) => {
+const MainButton = ({ children, type, disable }) => {
   return (
-    <button className="mainbutton" type={type}>
+    <button
+      className="mainbutton"
+      type={type}
+      disabled={disable}
+      style={{ color: disable && "grey" }}
+    >
       {children}
     </button>
   );

@@ -3,11 +3,14 @@ import Card from "../../components/Card/Card";
 import MainButton from "../../components/MainButton";
 import { data } from "../../data/data";
 import "./Home.scss";
+import emailjs from "emailjs-com";
 
 const Home = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  const [loader, setLoader] = useState(false);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -17,8 +20,40 @@ const Home = () => {
       return;
     }
 
-    console.log(name, email, message);
-    alert("Message Sent!");
+    setLoader(true);
+
+    emailjs
+      .send(
+        "service_32dztfw",
+        "template_dp7w3e8",
+        {
+          name: name,
+          message: message,
+          email: email,
+        },
+        "user_kdYOSBqgnRcMHHbELRst4"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      )
+      .then(() => {
+        alert("We will reach out to you very soon 👍");
+        setLoader(false);
+      })
+      .catch((error) => {
+        alert(error.message);
+        setLoader(false);
+      });
+    if (loader === false) {
+      setName("");
+      setEmail("");
+      setMessage("");
+    }
   };
 
   return (
@@ -69,6 +104,7 @@ const Home = () => {
           <input
             placeholder="Enter Your Name"
             type="text"
+            name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="fifth__form--input"
@@ -76,19 +112,22 @@ const Home = () => {
           <input
             placeholder="Enter Your Email"
             type="email"
+            name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="fifth__form--input"
           />
           <textarea
             placeholder="Enter Your Message"
-            name="Text1"
             rows="7"
+            name="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             className="fifth__form--input"
           ></textarea>
-          <MainButton type="submit">Submit</MainButton>
+          <MainButton type="submit" disable={loader}>
+            Submit
+          </MainButton>
         </form>
       </div>
     </div>
