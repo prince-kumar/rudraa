@@ -83,7 +83,12 @@ const Home = () => {
         <div className="third__cards">
           {data.list.map((card) => {
             return (
-              <Card key={card.title} title={card.title} image={card.image} />
+              <Card
+                key={card.title}
+                title={card.title}
+                about={card.about}
+                image={card.image}
+              />
             );
           })}
         </div>
