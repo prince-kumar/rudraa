@@ -4,6 +4,7 @@ import MainButton from "../../components/MainButton";
 import { data } from "../../data/data";
 import "./Home.scss";
 import emailjs from "emailjs-com";
+import ProductModal from "../../components/Card/ProductModal";
 
 const Home = () => {
   const [name, setName] = useState("");
@@ -62,7 +63,9 @@ const Home = () => {
         <div className="first__text">
           <span className="first__text--title">{data.title}</span>
           <span className="first__text--subtitle">{data.subTitle}</span>
-          <MainButton>Know More</MainButton>
+          <ProductModal title={data.title} image={data.img1} about={data.about}>
+            <MainButton>Know More</MainButton>
+          </ProductModal>
         </div>
         <img className="first__img" src={data.img1} alt={data.title} />
       </div>
@@ -99,7 +102,9 @@ const Home = () => {
         <div className="fourth__text">
           <span className="fourth__text--title">{data.title}</span>
           <span className="fourth__text--subtitle">{data.subTitle}</span>
-          <MainButton>Know More</MainButton>
+          <ProductModal title={data.title} image={data.img1} about={data.about}>
+            <MainButton>Know More</MainButton>
+          </ProductModal>
         </div>
       </div>
 

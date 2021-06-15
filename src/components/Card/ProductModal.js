@@ -15,17 +15,24 @@ function ProductModal({ children, title, image, about }) {
     <>
       <span onClick={onOpen}>{children}</span>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} size="3xl">
         <ModalOverlay />
         <ModalContent>
           <ModalHeader textAlign="center">{title}</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
-            <img
-              src={image}
-              style={{ marginBottom: 20, borderRadius: 5 }}
-              alt={title}
-            />
+          <ModalBody
+            textAlign="justify"
+            justifyContent="center"
+            d="flex"
+            flexDir="column"
+          >
+            {image && (
+              <img
+                src={image}
+                style={{ marginBottom: 20, borderRadius: 5 }}
+                alt={title}
+              />
+            )}
             <span>{about}</span>
           </ModalBody>
 
